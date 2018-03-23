@@ -56,9 +56,6 @@ $("#add-Gif").on("click", function(event) {
 
         
        
-
-
-
 //  //Function to create the button
 // function createButtons() {
 //     $("#buttonArea").empty();
@@ -72,9 +69,23 @@ $("#add-Gif").on("click", function(event) {
 // }
          
 
+//This function changes the state of the gifs from still to animated back to still
+
+//  $("#buttonArea").on('click','.gifImg')() {
+//     if (state == 'still') {
+//       $(this).attr('src', $(this).data('animate'));
+//       $(this).attr('data-state', 'animate');
+//         //Otherwiser, change the state
+//     else { 
+//       $(this).attr('src', $(this).data('still'));
+//       $(this).attr('data-state', 'still');
+
+//     }
 
 
-         
+
+
+
 
 
     // .then(function (response) {
@@ -95,19 +106,7 @@ $("#add-Gif").on("click", function(event) {
     // console.log('response', response);
   // }
 
-//This function changes the state of the gifs from still to animated back to still
-
-//  $("#buttonArea").on('click','.gifImg')() {
-//     if (state == 'still') {
-//       $(this).attr('src', $(this).data('animate'));
-//       $(this).attr('data-state', 'animate');
-//         //Otherwiser, change the state
-//     else { 
-//       $(this).attr('src', $(this).data('still'));
-//       $(this).attr('data-state', 'still');
-
-//     }
-
+/
 
 // });
 
