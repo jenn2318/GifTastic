@@ -8,13 +8,11 @@
 var topicsArray = [];
 
 var gifsPerTopic = 10;
+
+
 //============================================================================================================
 //FUNCTIONS
 // $(document).ready(function) {
-
-
-// $("body").addClass("color", "blue");
-
 
 //Function to query the API for the athlete gifs/ajax call stored here/new div, image and and rating will display as text
 //Function defines variables for setting the images to a div and attributes for the images
@@ -33,12 +31,14 @@ $("#add-Gif").on("click", function(event) {
          for (var i = 0; i < 10; i++) {
              html = '';
              html = html + "<div class='imageWrapper'> <img class='gifImage' src=";
-             html = html + response.data[i].images.fixed_height.url;
+             html = html + response.data[i].images.fixed_height_still.url;
              html = html + ">";
              html = html + "<p>Rating: ";
              html = html + response.data[i].rating;
              html = html + "</p></div>";
             $("#gifArea").append(html);
+//========================================================================================
+            //This code does will use late if I need==================do not use right now
             // var gifDiv = $("<div>");
             // var ratingInfo = response.data[i].rating;
             // var gifRating = $("<p>").text("Rating: " + ratingInfo);
@@ -55,6 +55,14 @@ $("#add-Gif").on("click", function(event) {
     //     $("#gifDiv").append(gifImg);
     //     $("#gifDiv").append(gifRating);
     //     console.log('response', response);
+
+
+
+            // gifImage.attr("src", still);
+            // gifImage.attr("data-state", "still");
+            // gifImage.attr("data-still", still);
+            // gifmage.attr("data-animate", animated);
+
         createButtons();
 
         
@@ -96,12 +104,14 @@ function createButtons() {
       $("#buttonArea").append(html);
     }
 }
+//Concatenated the html above this sentence just shows what I want to say and the button the text will append to above the gifs
 // <button class="atheleteGifs" data-person="Serena Williams">Serena Williams</button>         
 
 //This function changes the state of the gifs from still to animated back to still
 
+
  $('#gifArea').on('click', '.gifImage', function() {
-     console.log('imageclicked');
+     console.log('gifImage');
     if (state == 'still') {
       $(this).attr('src', $(this).data('animate'));
       $(this).attr('data-state', 'animate');
@@ -118,49 +128,8 @@ function createButtons() {
 
 
 
-    // .then(function (response) {
-    //   var resultsTopics = response.data;
-    //      for (var i = 0; i < response.data.length; i++) {
-    //       var gifDiv = $("<div>");
-    //       var ratingInfo = response.data[i].rating;
-    //       var gifRating = $("<p>").text("Rating: " + ratingInfo);
-    //       var gifImg = $("<img>");
-    //       gifImg.addClass("gifImage");
-    //       gifImg.attr("src", results[i].images.fixed_height.url);
-    //       var still = response.data[i].images.fixed_height_still.url;
-    //       var animated = response.data[i].images.fixed_height.url;
+    
 
-    // // gitDiv.append(gifImg);
-    // $("#gifDiv").prepend(gifImg);
-    //  gifDiv.append(gifRating);
-    // console.log('response', response);
-  // }
-
-
-
-// });
-
-// function displayAthletes () {
-// 	var athletes = $(this).attr("data-person");
-// 	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topics + "&api_key=0LtjmwyUivgwh70IYlx6W5fwSgRZoTwH";
-// 	console.log (queryURL);
-//    $.ajax({
-//       url: queryURL,
-//       method: "GET"
-//         }).then(function(response) {
-//       	var resultsTopics = response.data;
-//          for (var i = 0; i < response.data.length; i++) {
-//           var gifDiv = $("<div>");
-//           // var gifImg = $("<img class="gifImage">");
-//           var ratingInfo = response.data[i].rating;
-//           var gifRating = $("<p>").text("Rating: " + ratingInfo);
-//           var animated = response.data[i].images.fixed_height.url;
-//           var still = response.data[i].images.fixed_height_still.url;
-
-// gitDiv.append(gifImg);
-// gifDiv.append(gifRating);
-// $("#gifArea").prepend(gifDiv);
-// }
 
 
 

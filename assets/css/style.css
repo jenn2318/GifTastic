@@ -6,9 +6,12 @@
 #gifArea{
 	display: flex;
 	flex-wrap: wrap;
+	background-color: red;
+	
 }
 
 .imageWrapper {
 	padding-right: 15px;
 	padding-bottom: 15px;
 }
+
