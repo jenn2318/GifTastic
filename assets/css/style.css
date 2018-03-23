@@ -3,3 +3,12 @@
 }*/
 
 
+#gifArea{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.imageWrapper {
+	padding-right: 15px;
+	padding-bottom: 15px;
+}
