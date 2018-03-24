@@ -29,6 +29,7 @@ $("#add-Gif").on("click", function(event) {
         success: function (response) {
         console.log(response);
          for (var i = 0; i < 10; i++) {
+           //Started the code this way first decided to make it cleaner
             //  html = '';
             //  html = html + "<div class='imageWrapper'> <img class='gifImage' src=";
             //  html = html + response.data[i].images.fixed_height_still.url;
@@ -52,7 +53,7 @@ $("#add-Gif").on("click", function(event) {
             $("#gifArea").append(gifImage);
             // $("#gifArea").append(ratingInfo);
             $("#gifArea").append(gifRating);
-}
+}           //Worked with the code like this before....that did not work the way my setup was initially
             // gifImage.attr("src", still);
             // gifImage.attr("data-state", "still");
             // gifImage.attr("data-still", still);
