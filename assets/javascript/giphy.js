@@ -29,65 +29,47 @@ $("#add-Gif").on("click", function(event) {
         success: function (response) {
         console.log(response);
          for (var i = 0; i < 10; i++) {
-             html = '';
-             html = html + "<div class='imageWrapper'> <img class='gifImage' src=";
-             html = html + response.data[i].images.fixed_height_still.url;
-             html = html + ">";
-             html = html + "<p>Rating: ";
-             html = html + response.data[i].rating;
-             html = html + "</p></div>";
-            $("#gifArea").append(html);
+            //  html = '';
+            //  html = html + "<div class='imageWrapper'> <img class='gifImage' src=";
+            //  html = html + response.data[i].images.fixed_height_still.url;
+            //  html = html + ">";
+            //  html = html + "<p>Rating: ";
+            //  html = html + response.data[i].rating;
+            //  html = html + "</p></div>";
+            // $("#gifArea").append(html);
 //========================================================================================
-            //This code does will use late if I need==================do not use right now
-            // var gifDiv = $("<div>");
-            // var ratingInfo = response.data[i].rating;
-            // var gifRating = $("<p>").text("Rating: " + ratingInfo);
-            // var gifImg = $("<img>");
-            // gifImg.addClass("gifImage");
-            // gifImg.attr("src", response.data[i].images.fixed_height.url);
-            // var still = response.data[i].images.fixed_height_still.url;
-            // var animated = response.data[i].images.fixed_height.url;
-        }
+           //This is the block of code I tested it works now  
+             var gifDiv = $("<div>");
+             $("#gifArea").addClass("imageWrapper");
+             var gifImage = $("<img>");
+             gifImage.addClass("gifImage");
+             gifImage.attr("src", response.data[i].images.fixed_height_still.url);
+             gifImage.attr("data-state", "still");
+             gifImage.attr("data-still", response.data[i].images.fixed_height_still.url);
+             gifImage.attr("data-animate", response.data[i].images.fixed_height.url);
+            var ratingInfo = response.data[i].rating;
+            var gifRating = $("<p>").text("Rating: " + ratingInfo);
+            $("#gifArea").append(gifImage);
+            $("#gifArea").append(ratingInfo);
 
-    //     <p>Rating: rating goes here</p> <img src="gifImg">
-
-    // // // gitDiv.append(gifImg);
-    //     $("#gifDiv").append(gifImg);
-    //     $("#gifDiv").append(gifRating);
-    //     console.log('response', response);
-
-
-
+}
             // gifImage.attr("src", still);
             // gifImage.attr("data-state", "still");
             // gifImage.attr("data-still", still);
             // gifmage.attr("data-animate", animated);
 
         createButtons();
-
-        
+            
          } 
+     
       });
+  
   });      
          
-    //      for (var i = 0; i < response.data.length; i++) {
-    //       var gifDiv = $("<div>");
-    //       var ratingInfo = response.data[i].rating;
-    //       var gifRating = $("<p>").text("Rating: " + ratingInfo);
-    //       var gifImg = $("<img>");
-    //       gifImg.addClass("gifImage");
-    //       gifImg.attr("src", results[i].images.fixed_height.url);
-    //       var still = response.data[i].images.fixed_height_still.url;
-    //       var animated = response.data[i].images.fixed_height.url;
-    // // gitDiv.append(gifImg);
-    //     $("#gifDiv").append(gifImg);
-    //     $("#gifDiv").append(gifRating);
-    //     console.log('response', response);
-    //     createButtons();
-
-        
+  // createButtons();
+ 
        
-//  //Function to create the button
+//  //Function to create the buttons
 function createButtons() {
     $("#buttonArea").empty();
     for (var i = 0; i < topicsArray.length; i++) {
@@ -112,12 +94,13 @@ function createButtons() {
 
  $('#gifArea').on('click', '.gifImage', function() {
      console.log('gifImage');
+     var state = $(this).attr("data-state");
     if (state == 'still') {
-      $(this).attr('src', $(this).data('animate'));
+      $(this).attr('src', $(this).attr("data-animate"));
       $(this).attr('data-state', 'animate');
-        //Otherwiser, change the state
+        //Otherwiser, change the state of the gif
     } else { 
-      $(this).attr('src', $(this).data('still'));
+      $(this).attr('src', $(this).attr("data-still"));
       $(this).attr('data-state', 'still');
 
     }

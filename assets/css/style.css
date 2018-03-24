@@ -7,7 +7,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	background-color: red;
-	
+
 }
 
 .imageWrapper {
@@ -15,3 +15,11 @@
 	padding-bottom: 15px;
 }
 
+.gifImage{
+	margin-top: 15px;
+	padding: 5px;
+}
+
+p{
+	text-align: center;
+}
