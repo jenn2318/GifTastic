@@ -50,8 +50,8 @@ $("#add-Gif").on("click", function(event) {
             var ratingInfo = response.data[i].rating;
             var gifRating = $("<p>").text("Rating: " + ratingInfo);
             $("#gifArea").append(gifImage);
-            $("#gifArea").append(ratingInfo);
-
+            // $("#gifArea").append(ratingInfo);
+            $("#gifArea").append(gifRating);
 }
             // gifImage.attr("src", still);
             // gifImage.attr("data-state", "still");
@@ -90,7 +90,6 @@ function createButtons() {
 // <button class="atheleteGifs" data-person="Serena Williams">Serena Williams</button>         
 
 //This function changes the state of the gifs from still to animated back to still
-
 
  $('#gifArea').on('click', '.gifImage', function() {
      console.log('gifImage');
